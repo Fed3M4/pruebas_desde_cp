@@ -11,13 +11,41 @@ import { EditarCursosDialogComponent } from '../editar-cursos-dialog/editar-curs
 })
 export class MaterialsComponent {
   cursos: Curso[] = [
-    {nombre: 'Angular', comision: '49533', profesor: 'Federico'},
-    {nombre: 'Vue', comision: '49543', profesor: 'Romina'},
-    {nombre: 'NodeJS', comision: '49333', profesor: 'Christian'},
-    {nombre: 'Reacr', comision: '49133', profesor: 'Leandro'},
+    {
+    nombre: 'Angular',
+    comision: '49533',
+    profesor: { nombre: 'Federico', correo: 'fede@mail.com', fechaRegistro: new Date(1998,2,31) },
+    inscripcionAbierta: true,
+    fechaInicio: new Date(2023,11,1),
+    fechaFin: new Date(2024,11,1)
+    },
+    {
+      nombre: 'Vue',
+      comision: '49543',
+      profesor: { nombre: 'Romina', correo: 'darkwitch@mail.com', fechaRegistro: new Date(1999, 10, 8)},
+      inscripcionAbierta: true,
+      fechaInicio: new Date(2023,11,15),
+      fechaFin: new Date(2024,11,1)
+    },
+    {
+      nombre: 'NodeJS',
+      comision: '49333',
+      profesor: { nombre: 'Christian', correo: 'cfroca@mail.com', fechaRegistro: new Date(1998, 5, 21)},
+      inscripcionAbierta: false,
+      fechaInicio: new Date(2021, 10, 5),
+      fechaFin: new Date(2023, 0, 10)
+    },
+    {
+      nombre: 'React',
+      comision: '49133',
+      profesor: {nombre: 'Leandro', correo: 'lramis@mail.com', fechaRegistro: new Date(1996, 7, 23)},
+      inscripcionAbierta: false,
+      fechaInicio: new Date(2022,0,1),
+      fechaFin: new Date(2023,1,20)
+    },
   ];
   dataSource: MatTableDataSource<Curso> = new MatTableDataSource<Curso>(this.cursos);
-  columnas: string[] = ['nombre', 'comision', 'profesor', 'acciones'];
+  columnas: string[] = ['nombre', 'comision', 'profesor', 'fechaInicio', 'fechaFin', 'inscripcionAbierta', 'acciones'];
 
   constructor(
     private dialog: MatDialog
